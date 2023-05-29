@@ -1,0 +1,21 @@
+<!-- property binding so at first the button is disabled but after 10 seconds it is re enabled -->
+<!-- click event binding will display server created when clicked, initially it was no server created -->
+
+<label>Server Name</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+<hr>
+<!-- this is two way data binding. initially there will be some data in the input feild =. when we update it changes in string interpolation -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<br>
+<!-- <input type="text" class="form-control" ([ngModel]="serverName")> -->
+<!-- <p>{{serverName}}</p> -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="serverCreate()">Add Server</button>
+<br>
+<br>
+<p *ngIf="serverCreated">Server was created, server name is: {{serverName}}</p>
+<!-- this is else condition of above ngIf -->
+<br>
+<!-- <ng-template #noServer>
+    <p>No Server Was Created</p>
+</ng-template> -->
+<app-server *ngFor="let server of servers"></app-server>
